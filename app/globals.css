@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors — Localens design system */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-card: #111111;
+  --color-bg-elevated: #1a1a1a;
+  --color-bg-subtle: #222222;
+
+  --color-border-default: #2a2a2a;
+  --color-border-emphasis: #333333;
+
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #888888;
+  --color-text-muted: #555555;
+
+  --color-accent-white: #ffffff;
+  --color-accent-danger: #ef4444;
+  --color-accent-success: #22c55e;
+
+  /* Skeleton shimmer tones */
+  --color-skeleton-base: #161616;
+  --color-skeleton-shine: #232323;
+
+  /* Fonts */
+  --font-display: var(--font-dm-serif);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Custom skeleton shimmer animation */
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-skeleton-base) 25%,
+    var(--color-skeleton-shine) 50%,
+    var(--color-skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+/*
+  LOCALENS DESIGN RULES — DO NOT VIOLATE
+  - Zero gradients in UI surfaces (skeleton shimmer is the only exception)
+  - Zero box-shadows — borders only (border-border-default)
+  - Never use Tailwind default colors — only bg-bg-*, text-text-*,
+    border-border-*, accent-*, skeleton-* tokens
+  - Icons: lucide-react, strokeWidth={1.5}, outline only
+  - Radius: rounded (4px) default, rounded-lg (8px) cards, rounded-xl (12px) modals
+  - Transitions: transition-colors duration-150 only
+  - Every async UI element MUST have a matching skeleton state
+*/
