@@ -26,6 +26,6 @@ Premium product and service discovery platform where users can search for any pr
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/localens.git
+git clone https://github.com/firatolin/localens.git
 cd localens
 ```
